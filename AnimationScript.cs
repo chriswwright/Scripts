@@ -42,22 +42,22 @@ public class AnimationScript : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && (Input.GetMouseButton(0)))
         {
-            StopAllCoroutines();
+            //StopAllCoroutines();
             StartCoroutine(Left_drill());
         }
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))  && (Input.GetMouseButton(0)))
         {
-            StopAllCoroutines();
+            //StopAllCoroutines();
             StartCoroutine(Up_drill());
         }
         if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))  && (Input.GetMouseButton(0)))
         {
-            StopAllCoroutines();
+            //StopAllCoroutines();
             StartCoroutine(Right_drill());
         }
         if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))  && (Input.GetMouseButton(0)))
         {
-            StopAllCoroutines();
+            //StopAllCoroutines();
             StartCoroutine(Down_drill());
         }
     }
@@ -108,9 +108,9 @@ public class AnimationScript : MonoBehaviour
     {
         int i;
         i = 0;
-        while (i < up_drill.Length)
+        while (i < up.Length)
         {
-            spriteRenderer.sprite = up_drill[i];
+            spriteRenderer.sprite = up[i];
             i++;
             yield return new WaitForSeconds(0.07f);
             yield return 0;
