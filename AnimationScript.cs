@@ -43,22 +43,22 @@ public class AnimationScript : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && (Input.GetMouseButton(0)))
         {
-            //StopAllCoroutines();
+            StopAllCoroutines();
             StartCoroutine(Left_drill());
         }
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))  && (Input.GetMouseButton(0)))
         {
-            //StopAllCoroutines();
+            StopAllCoroutines();
             StartCoroutine(Up_drill());
         }
         if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))  && (Input.GetMouseButton(0)))
         {
-            //StopAllCoroutines();
+            StopAllCoroutines();
             StartCoroutine(Right_drill());
         }
         if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))  && (Input.GetMouseButton(0)))
         {
-            //t StopAllCoroutines();
+            StopAllCoroutines();
             StartCoroutine(Down_drill());
         }
     }
@@ -77,9 +77,13 @@ public class AnimationScript : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-          StartCoroutine(Left_drill())
+            StopAllCoroutines();
+            StartCoroutine(Left_drill());
         }
-        StartCoroutine(Left());
+        else
+        {
+            StartCoroutine(Left());
+        }
     }
     IEnumerator Right()
     {
@@ -94,9 +98,13 @@ public class AnimationScript : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-          StartCoroutine(Right_drill())
+            StopAllCoroutines();
+            StartCoroutine(Right_drill());
         }
-        StartCoroutine(Right());
+        else
+        {
+            StartCoroutine(Right());
+        }
     }
 
     IEnumerator Down()
@@ -113,7 +121,8 @@ public class AnimationScript : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-          StartCoroutine(Down_drill())
+            StopAllCoroutines();
+            StartCoroutine(Down_drill());
         }
         else
         {
@@ -134,9 +143,13 @@ public class AnimationScript : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-          StartCoroutine(Up_drill())
+            StopAllCoroutines();
+            StartCoroutine(Up_drill());
         }
-        StartCoroutine(Up());
+        else
+        {
+            StartCoroutine(Up());
+        }
     }
 
 //Drilly_Bois
@@ -194,7 +207,16 @@ public class AnimationScript : MonoBehaviour
             yield return 0;
 
         }
-        StartCoroutine(Up_drill());
+        if (Input.GetMouseButton(0))
+        {
+            
+            StartCoroutine(Up_drill());
+        }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(Up());
+        }
     }
 
 }
