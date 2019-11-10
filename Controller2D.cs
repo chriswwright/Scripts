@@ -193,10 +193,10 @@ public class Controller2D : MonoBehaviour
     {
         if (Input.GetMouseButton(1) && tilemap.WorldToCell(Input.mousePosition) == null)
         {
-           tilemap.SetTile(tilemap.WorldToCell(Input.GetMousePosition), tile.GetTileData(0,0))
+           tilemap.SetTile(tilemap.WorldToCell(Input.GetMousePosition), scaffolding.GetTileData(0,0))
         }
     }
-    ***Check ***
+
     public void Move(Vector3 velocity) {
         UpdateRaycastOrigins();
         UpdateDirection();
