@@ -12,55 +12,24 @@ public class AnimationScript : MonoBehaviour
     public Sprite[] right_drill;
     public Sprite[] down_drill;
     public Sprite[] up_drill;
+
+    public Sprite[] left_drill_rocket;
+    public Sprite[] right_drill_rocket;
+    public Sprite[] down_drill_rocket;
+    public Sprite[] up_drill_rocket;
+
+    public Sprite[] left_rocket;
+    public Sprite[] right_rocket;
+    public Sprite[] down_rocker;
+    public Sprite[] up_rocket;
     void Start()
     {
         StartCoroutine(Left());
     }
     void Update() //
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-        {
-            StopAllCoroutines();
-            StartCoroutine(Left());
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-        {
-            StopAllCoroutines();
-            StartCoroutine(Up());
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
-        {
-            StopAllCoroutines();
-            StartCoroutine(Right());
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-        {
-            StopAllCoroutines();
-            StartCoroutine(Down());
-
-        }
-//Drilling Stuff
-
-        if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && (Input.GetMouseButton(0)))
-        {
-            StopAllCoroutines();
-            StartCoroutine(Left_drill());
-        }
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))  && (Input.GetMouseButton(0)))
-        {
-            StopAllCoroutines();
-            StartCoroutine(Up_drill());
-        }
-        if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))  && (Input.GetMouseButton(0)))
-        {
-            StopAllCoroutines();
-            StartCoroutine(Right_drill());
-        }
-        if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))  && (Input.GetMouseButton(0)))
-        {
-            StopAllCoroutines();
-            StartCoroutine(Down_drill());
-        }
+        movement_noDrill()
+        movement_Drill()
     }
 
     IEnumerator Left()
@@ -241,6 +210,52 @@ public class AnimationScript : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(Up());
         }
+    }
+    void movement_noDrill()
+    {
+      if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+      {
+          StopAllCoroutines();
+          StartCoroutine(Left());
+      }
+      if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+      {
+          StopAllCoroutines();
+          StartCoroutine(Up());
+      }
+      if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+      {
+          StopAllCoroutines();
+          StartCoroutine(Right());
+      }
+      if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+      {
+          StopAllCoroutines();
+          StartCoroutine(Down());
+      }
+    }
+    void movement_Drill()
+    {
+      if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && (Input.GetMouseButton(0)))
+      {
+          StopAllCoroutines();
+          StartCoroutine(Left_drill());
+      }
+      if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))  && (Input.GetMouseButton(0)))
+      {
+          StopAllCoroutines();
+          StartCoroutine(Up_drill());
+      }
+      if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))  && (Input.GetMouseButton(0)))
+      {
+          StopAllCoroutines();
+          StartCoroutine(Right_drill());
+      }
+      if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))  && (Input.GetMouseButton(0)))
+      {
+          StopAllCoroutines();
+          StartCoroutine(Down_drill());
+      }
     }
 
 }
