@@ -104,5 +104,77 @@ public class AnimationScript : MonoBehaviour
         }
         StartCoroutine(Down());
     }
+    IEnumerator Up()
+    {
+        int i;
+        i = 0;
+        while (i < up.Length)
+        {
+            spriteRenderer.sprite = up[i];
+            i++;
+            yield return new WaitForSeconds(0.07f);
+            yield return 0;
+
+        }
+        StartCoroutine(Up());
+    }
+
+//Drilly_Bois
+    IEnumerator Left_drill()
+    {
+        int i;
+        i = 0;
+        while (i < left.Length)
+        {
+            spriteRenderer.sprite = left[i];
+            i++;
+            yield return new WaitForSeconds(0.07f);
+            yield return 0;
+
+        }
+        StartCoroutine(Left_drill());
+    }
+    IEnumerator Right_drill()
+    {
+        int i;
+        i = 0;
+        while (i < right.Length)
+        {
+            spriteRenderer.sprite = right[i];
+            i++;
+            yield return new WaitForSeconds(0.07f);
+            yield return 0;
+        }
+        StartCoroutine(Right_drill());
+    }
+
+    IEnumerator Down_drill()
+    {
+        int i;
+        i = 0;
+        while (i < down.Length)
+        {
+            spriteRenderer.sprite = down[i];
+            i++;
+            yield return new WaitForSeconds(0.07f);
+            yield return 0;
+
+        }
+        StartCoroutine(Down_drill());
+    }
+    IEnumerator Up_drill()
+    {
+        int i;
+        i = 0;
+        while (i < up.Length)
+        {
+            spriteRenderer.sprite = up[i];
+            i++;
+            yield return new WaitForSeconds(0.07f);
+            yield return 0;
+
+        }
+        StartCoroutine(Up_drill());
+    }
 
 }
