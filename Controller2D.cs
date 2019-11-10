@@ -7,6 +7,8 @@ using UnityEngine.Tilemaps;
 public class Controller2D : MonoBehaviour
 {
 
+    public float boostAmount = 1;
+    public Player player;
     public GameObject tilemapGameObject;
     public GameObject tilemapScaffolding;
     Tilemap tilemap;
@@ -89,7 +91,7 @@ public class Controller2D : MonoBehaviour
     private void DestroyTile(Vector2 hitPoint)
     {
 
-        if (tilemap != null && drilling == true && drillCount >= 300)
+        if (tilemap != null && drilling == true && drillCount >= 1)
         {
           tilemap.SetTile(tilemap.WorldToCell(hitPoint), null);
             drillCount = 0;
@@ -123,7 +125,7 @@ public class Controller2D : MonoBehaviour
                     hitPoint.x -= .2f;
                     DestroyTile(hitPoint);
                 }
-                collisions.right = directionX == 1;
+                collisions.right = directionX ==1;
                 if (directionX == 1 && direction.right)
                 {
                     DestroyTile(hit.point);
@@ -154,11 +156,12 @@ public class Controller2D : MonoBehaviour
                     Vector2 hitPoint = hit.point;
                     hitPoint.y -= .1f;
                     DestroyTile(hitPoint);
+
                 }
                 if (directionY == 1 && direction.up)
                 {
                     Vector2 hitPoint = hit.point;
-                    hitPoint.y += .1f;
+                    hitPoint.y += .3f;
                     DestroyTile(hitPoint);
                 }
                 collisions.above = directionY == 1;
@@ -189,19 +192,33 @@ public class Controller2D : MonoBehaviour
         verticalRaySpacing = bounds.size.x / (verticalRayCount - 1);
     }
 
-    public void PlaceScaffolding()
-    {
-        Vector3Int position = new Vector3Int(0, 0, 0);
-        if (Input.GetMouseButton(1) && tilemap.WorldToCell(Input.mousePosition) == null)
+    public void RocketBoost() {
+        if (Input.GetMouseButton(1))
         {
-            tilemap.SetTile(tilemap.WorldToCell(Input.mousePosition), tilemap.GetTile(position));
+            if (direction.down)
+            {
+                player.velocity.y -= boostAmount;
+            }
+            else if(direction.up)
+            {
+                player.velocity.y += boostAmount;
+            }
+            else if (direction.left)
+            {
+                player.velocity.x -= boostAmount;
+            }
+            else if (direction.right)
+            {
+                player.velocity.x += boostAmount;
+            }
         }
     }
+ 
     
     public void Move(Vector3 velocity) {
         UpdateRaycastOrigins();
         UpdateDirection();
-
+        RocketBoost();
         collisions.Reset();
         if (velocity.x != 0) {
         HorizontalCollisions(ref velocity); }
