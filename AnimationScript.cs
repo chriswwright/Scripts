@@ -40,22 +40,22 @@ public class AnimationScript : MonoBehaviour
         }
 //Drilling Stuff
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && (Input.GetMouseButton(0))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) && (Input.GetMouseButton(0)))
         {
             StopAllCoroutines();
             StartCoroutine(Left_drill());
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))  && (Input.GetMouseButton(0))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)  && (Input.GetMouseButton(0)))
         {
             StopAllCoroutines();
             StartCoroutine(Up_drill());
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))  && (Input.GetMouseButton(0))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)  && (Input.GetMouseButton(0)))
         {
             StopAllCoroutines();
             StartCoroutine(Right_drill());
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))  && (Input.GetMouseButton(0))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)  && (Input.GetMouseButton(0)))
         {
             StopAllCoroutines();
             StartCoroutine(Down_drill());
