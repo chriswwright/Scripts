@@ -165,7 +165,15 @@ public class AnimationScript : MonoBehaviour
             yield return 0;
 
         }
-        StartCoroutine(Left_drill());
+        if (Input.GetMouseButton(0))
+        {
+            StartCoroutine(Left_drill());
+        }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(Left());
+        }
     }
     IEnumerator Right_drill()
     {
@@ -178,7 +186,15 @@ public class AnimationScript : MonoBehaviour
             yield return new WaitForSeconds(0.07f);
             yield return 0;
         }
-        StartCoroutine(Right_drill());
+        if (Input.GetMouseButton(0))
+        {
+            StartCoroutine(Right_drill());
+        }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(Right());
+        }
     }
 
     IEnumerator Down_drill()
@@ -193,7 +209,15 @@ public class AnimationScript : MonoBehaviour
             yield return 0;
 
         }
-        StartCoroutine(Down_drill());
+        if (Input.GetMouseButton(0))
+        {
+            StartCoroutine(Down_drill());
+        }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(Down());
+        }
     }
     IEnumerator Up_drill()
     {
@@ -209,7 +233,7 @@ public class AnimationScript : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-            
+
             StartCoroutine(Up_drill());
         }
         else

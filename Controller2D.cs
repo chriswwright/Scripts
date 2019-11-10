@@ -192,7 +192,8 @@ public class Controller2D : MonoBehaviour
         verticalRaySpacing = bounds.size.x / (verticalRayCount - 1);
     }
 
-    public void RocketBoost() {
+    public void RocketBoost()
+    {
         if (Input.GetMouseButton(1))
         {
             if (direction.down)
@@ -213,8 +214,8 @@ public class Controller2D : MonoBehaviour
             }
         }
     }
- 
-    
+
+
     public void Move(Vector3 velocity) {
         UpdateRaycastOrigins();
         UpdateDirection();
