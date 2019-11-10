@@ -108,9 +108,9 @@ public class AnimationScript : MonoBehaviour
     {
         int i;
         i = 0;
-        while (i < up.Length)
+        while (i < up_drill.Length)
         {
-            spriteRenderer.sprite = up[i];
+            spriteRenderer.sprite = up_drill[i];
             i++;
             yield return new WaitForSeconds(0.07f);
             yield return 0;
@@ -124,9 +124,9 @@ public class AnimationScript : MonoBehaviour
     {
         int i;
         i = 0;
-        while (i < left.Length)
+        while (i < left_drill.Length)
         {
-            spriteRenderer.sprite = left[i];
+            spriteRenderer.sprite = left_drill[i];
             i++;
             yield return new WaitForSeconds(0.07f);
             yield return 0;
@@ -138,9 +138,9 @@ public class AnimationScript : MonoBehaviour
     {
         int i;
         i = 0;
-        while (i < right.Length)
+        while (i < right_drill.Length)
         {
-            spriteRenderer.sprite = right[i];
+            spriteRenderer.sprite = right_drill[i];
             i++;
             yield return new WaitForSeconds(0.07f);
             yield return 0;
@@ -152,9 +152,9 @@ public class AnimationScript : MonoBehaviour
     {
         int i;
         i = 0;
-        while (i < down.Length)
+        while (i < down_drill.Length)
         {
-            spriteRenderer.sprite = down[i];
+            spriteRenderer.sprite = down_drill[i];
             i++;
             yield return new WaitForSeconds(0.07f);
             yield return 0;
@@ -166,9 +166,9 @@ public class AnimationScript : MonoBehaviour
     {
         int i;
         i = 0;
-        while (i < up.Length)
+        while (i < up_drill.Length)
         {
-            spriteRenderer.sprite = up[i];
+            spriteRenderer.sprite = up_drill[i];
             i++;
             yield return new WaitForSeconds(0.07f);
             yield return 0;
