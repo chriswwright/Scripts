@@ -74,7 +74,7 @@ public class Controller2D : MonoBehaviour
             direction.down = true;
             direction.left = false;
             direction.right = false;
-            direction.up = false
+            direction.up = false;
         }
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
@@ -191,12 +191,13 @@ public class Controller2D : MonoBehaviour
 
     public void PlaceScaffolding()
     {
+        Vector3Int position = new Vector3Int(0, 0, 0);
         if (Input.GetMouseButton(1) && tilemap.WorldToCell(Input.mousePosition) == null)
         {
-           tilemap.SetTile(tilemap.WorldToCell(Input.GetMousePosition), tile.GetTileData(0,0))
+            tilemap.SetTile(tilemap.WorldToCell(Input.mousePosition), tilemap.GetTile(position));
         }
     }
-    ***Check ***
+    
     public void Move(Vector3 velocity) {
         UpdateRaycastOrigins();
         UpdateDirection();
@@ -219,12 +220,12 @@ public class Controller2D : MonoBehaviour
 
     public struct DirectionInfo
     {
-        public bool above, down;
+        public bool up, down;
         public bool left, right;
 
         public void Reset()
         {
-            above = down = false;
+            up = down = false;
             left = right = false;
         }
     }
