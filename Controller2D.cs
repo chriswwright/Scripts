@@ -60,18 +60,29 @@ public class Controller2D : MonoBehaviour
             direction.left = true;
             direction.right = false;
             direction.down = false;
+            direction.up = false;
         }
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             direction.right = true;
             direction.left = false;
             direction.down = false;
+            direction.up = false;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             direction.down = true;
             direction.left = false;
             direction.right = false;
+            direction.up = false
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        {
+            direction.down = false;
+            direction.left = false;
+            direction.right = false;
+            direction.up = true;
+
         }
     }
 
@@ -142,6 +153,12 @@ public class Controller2D : MonoBehaviour
                 {
                     Vector2 hitPoint = hit.point;
                     hitPoint.y -= .1f;
+                    DestroyTile(hitPoint);
+                }
+                if (directionY == 1 && direction.up)
+                {
+                    Vector2 hitPoint = hit.point;
+                    hitPoint.y += .1f;
                     DestroyTile(hitPoint);
                 }
                 collisions.above = directionY == 1;
