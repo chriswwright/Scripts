@@ -84,7 +84,7 @@ public class Controller2D : MonoBehaviour
             drillCount = 0;
 
         }
-   
+
     }
 
     void HorizontalCollisions(ref Vector3 velocity)
@@ -172,21 +172,20 @@ public class Controller2D : MonoBehaviour
         verticalRaySpacing = bounds.size.x / (verticalRayCount - 1);
     }
 
-    public void UpdateInteraction()
+    public void PlaceScaffolding()
     {
-        if (Input.GetMouseButton(1) && tilemap.WorldToCell(Input.mousePosition) != null)
+        if (Input.GetMouseButton(1) && tilemap.WorldToCell(Input.mousePosition) == null)
         {
-
-           // tilemap.SetTile(tilemap.WorldToCell(Input.GetMousePosition), );
+           tilemap.SetTile(tilemap.WorldToCell(Input.GetMousePosition), tile.GetTileData(0,0))
         }
     }
-
+    ***Check ***
     public void Move(Vector3 velocity) {
         UpdateRaycastOrigins();
         UpdateDirection();
-        
+
         collisions.Reset();
-        if (velocity.x != 0) { 
+        if (velocity.x != 0) {
         HorizontalCollisions(ref velocity); }
     if(velocity.y != 0) {
         VerticalCollisions(ref velocity); }
@@ -224,5 +223,5 @@ public class Controller2D : MonoBehaviour
         }
     }
 
-  
+
 }
