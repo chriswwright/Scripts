@@ -37,6 +37,7 @@ public class AnimationScript : MonoBehaviour
         {
             StopAllCoroutines();
             StartCoroutine(Down());
+
         }
 //Drilling Stuff
 
@@ -57,7 +58,7 @@ public class AnimationScript : MonoBehaviour
         }
         if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))  && (Input.GetMouseButton(0)))
         {
-            //StopAllCoroutines();
+            //t StopAllCoroutines();
             StartCoroutine(Down_drill());
         }
     }
@@ -74,6 +75,10 @@ public class AnimationScript : MonoBehaviour
             yield return 0;
 
         }
+        if (Input.GetMouseButton(0))
+        {
+          StartCoroutine(Left_drill())
+        }
         StartCoroutine(Left());
     }
     IEnumerator Right()
@@ -86,6 +91,10 @@ public class AnimationScript : MonoBehaviour
             i++;
             yield return new WaitForSeconds(0.07f);
             yield return 0;
+        }
+        if (Input.GetMouseButton(0))
+        {
+          StartCoroutine(Right_drill())
         }
         StartCoroutine(Right());
     }
@@ -102,7 +111,14 @@ public class AnimationScript : MonoBehaviour
             yield return 0;
 
         }
-        StartCoroutine(Down());
+        if (Input.GetMouseButton(0))
+        {
+          StartCoroutine(Down_drill())
+        }
+        else
+        {
+          StartCoroutine(Down());
+        }
     }
     IEnumerator Up()
     {
@@ -115,6 +131,10 @@ public class AnimationScript : MonoBehaviour
             yield return new WaitForSeconds(0.07f);
             yield return 0;
 
+        }
+        if (Input.GetMouseButton(0))
+        {
+          StartCoroutine(Up_drill())
         }
         StartCoroutine(Up());
     }
